@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97D6227A-276B-4612-B3A4-1B59E81FF516}</ProjectGuid>
+    <ProjectGuid>{601BBDEE-4F6F-44B2-A892-07FE7E247E77}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ppmd_kaoutil_gui</RootNamespace>
@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -59,32 +60,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\kaoutil_gui\AssemblyInfo.cs" />
-    <Compile Include="Properties\kaoutil_gui\Resources.Designer.cs" />
-    <Compile Include="Properties\kaoutil_gui\Settings.Designer.cs" />
-    <Compile Include="src\fileinputoutput_form.cs">
+    <Compile Include="..\common\fileinputoutput_form.cs">
+      <Link>fileinputoutput_form.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\fileinputoutput_form.Designer.cs">
+    <Compile Include="..\common\fileinputoutput_form.designer.cs">
+      <Link>fileinputoutput_form.designer.cs</Link>
       <DependentUpon>fileinputoutput_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\kaoutil_gui\kaoutil_form.cs">
+    <Compile Include="..\common\utility_launcher.cs">
+      <Link>utility_launcher.cs</Link>
+    </Compile>
+    <Compile Include="kaoutil_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\kaoutil_gui\kaoutil_form.designer.cs">
+    <Compile Include="kaoutil_form.Designer.cs">
       <DependentUpon>kaoutil_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\kaoutil_gui\kaoutil_main.cs" />
-    <Compile Include="src\utility_launcher.cs" />
-    <EmbeddedResource Include="Properties\kaoutil_gui\Resources.resx" />
-    <EmbeddedResource Include="src\fileinputoutput_form.resx">
+    <Compile Include="kaoutil_Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\common\fileinputoutput_form.resx">
+      <Link>fileinputoutput_form.resx</Link>
       <DependentUpon>fileinputoutput_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\kaoutil_gui\kaoutil_form.resx">
+    <EmbeddedResource Include="kaoutil_form.resx">
       <DependentUpon>kaoutil_form.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="kaoutil_gui.config" />
-    <None Include="Properties\kaoutil_gui\Settings.settings" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ppmd_frontends")]
+[assembly: AssemblyTitle("ppmd_packfileutil_gui")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ppmd_frontends")]
+[assembly: AssemblyProduct("ppmd_packfileutil_gui")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("48cb9d95-4798-4f13-8bad-c457156f160a")]
+[assembly: Guid("6ceb68bb-d3aa-4157-bbc7-3c9eb39eb768")]
 
 // Version information for an assembly consists of the following four values:
 //

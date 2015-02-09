@@ -9,14 +9,6 @@ using System.Windows.Forms;
 
 namespace ppmd_frontends
 {
-    public interface OutPathAutoCompleter
-    {
-        //A couple of rules to be implemented to determine what to do when auto-completing the output path
-        string GetOutputFileExtension();
-        bool OutputShouldBeFile(String inputPath);
-        bool OutputShouldBeDirectory(String inputPath);
-    }
-
     public partial class fileinputoutput_form : Form, OutPathAutoCompleter
     {
         private Color COLOR_CORRECT = Color.FromArgb(200, 255, 200);
@@ -242,5 +234,13 @@ namespace ppmd_frontends
                 //txtOutPath.BackColor = Color.White;
             }
         }
+    }
+
+    public interface OutPathAutoCompleter
+    {
+        //A couple of rules to be implemented to determine what to do when auto-completing the output path
+        string GetOutputFileExtension();
+        bool OutputShouldBeFile(String inputPath);
+        bool OutputShouldBeDirectory(String inputPath);
     }
 }

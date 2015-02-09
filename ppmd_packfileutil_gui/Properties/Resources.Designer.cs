@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ppmd_packfileutilgui.Properties.packfileutil_gui {
+namespace ppmd_packfileutil_gui.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ppmd_packfileutilgui.Properties.packfileutil_gui {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ppmd_packfileutilgui.Properties.packfileutil_gui.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ppmd_packfileutil_gui.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

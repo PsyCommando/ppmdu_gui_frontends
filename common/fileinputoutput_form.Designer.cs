@@ -1,6 +1,6 @@
 ﻿namespace ppmd_frontends
 {
-    partial class fileinputoutput_form
+    public partial class fileinputoutput_form
     {
         /// <summary>
         /// Required designer variable.

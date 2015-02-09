@@ -1,6 +1,6 @@
-﻿namespace ppmd_packfileutilgui
+﻿namespace ppmd_packfileutil_gui
 {
-    partial class PackFileUtilForm
+    partial class packfileutil_form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackFileUtilForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(packfileutil_form));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.chkPokeSprite);
             this.groupBox1.Location = new System.Drawing.Point(13, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 106);
+            this.groupBox1.Size = new System.Drawing.Size(254, 70);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
@@ -131,7 +131,7 @@
             // 
             // btnExec
             // 
-            this.btnExec.Location = new System.Drawing.Point(567, 100);
+            this.btnExec.Location = new System.Drawing.Point(565, 67);
             this.btnExec.Name = "btnExec";
             this.btnExec.Size = new System.Drawing.Size(95, 23);
             this.btnExec.TabIndex = 7;
@@ -148,19 +148,19 @@
             // lnkGithub
             // 
             this.lnkGithub.AutoSize = true;
-            this.lnkGithub.Location = new System.Drawing.Point(600, 163);
+            this.lnkGithub.Location = new System.Drawing.Point(522, 122);
             this.lnkGithub.Name = "lnkGithub";
-            this.lnkGithub.Size = new System.Drawing.Size(55, 13);
+            this.lnkGithub.Size = new System.Drawing.Size(138, 13);
             this.lnkGithub.TabIndex = 8;
             this.lnkGithub.TabStop = true;
-            this.lnkGithub.Text = "My Github";
+            this.lnkGithub.Text = "PPMD Utilities GitHub Page";
             this.ttip.SetToolTip(this.lnkGithub, "For source code, documentation, and more tools, visit my github profile.");
             this.lnkGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGithub_LinkClicked);
             // 
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(567, 129);
+            this.btnClose.Location = new System.Drawing.Point(565, 96);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(95, 23);
             this.btnClose.TabIndex = 9;
@@ -172,23 +172,33 @@
             // 
             this.folderBrowserDialog1.Description = "Pick a folder";
             // 
-            // PackFileUtilForm
+            // packfileutil_form
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(664, 182);
+            this.ClientSize = new System.Drawing.Size(664, 142);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lnkGithub);
             this.Controls.Add(this.btnExec);
             this.Controls.Add(this.groupBox1);
-            this.Name = "PackFileUtilForm";
+            this.MaximumSize = new System.Drawing.Size(680, 180);
+            this.MinimumSize = new System.Drawing.Size(680, 180);
+            this.Name = "packfileutil_form";
             this.Text = "ppmd Pack File Utility";
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.btnExec, 0);
             this.Controls.SetChildIndex(this.lnkGithub, 0);
             this.Controls.SetChildIndex(this.btnClose, 0);
+            this.Controls.SetChildIndex(this.txtInPath, 0);
+            this.Controls.SetChildIndex(this.txtOutPath, 0);
+            this.Controls.SetChildIndex(this.btnOutBrowse, 0);
+            this.Controls.SetChildIndex(this.btnInBrowse, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.btnInBrowseDir, 0);
+            this.Controls.SetChildIndex(this.btnOutBrowseDir, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numForcedOffset)).EndInit();
@@ -198,8 +208,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        
+       private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblForcedOffset;

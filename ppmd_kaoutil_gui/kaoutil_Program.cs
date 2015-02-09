@@ -4,9 +4,9 @@ using System.Linq;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ppmd_packfileutilgui
+namespace ppmd_kaoutil_gui
 {
-    static class PackFileUtilProgram
+    static class kaoutil_Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,7 @@ namespace ppmd_packfileutilgui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PackFileUtilForm());
+            Application.Run(new kaoutil_form());
         }
     }
 }

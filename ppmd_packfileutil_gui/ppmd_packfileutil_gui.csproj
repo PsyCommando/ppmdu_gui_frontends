@@ -4,29 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43F13901-D31B-4D4A-AA4A-7849DE43ABE6}</ProjectGuid>
+    <ProjectGuid>{928FF896-7A5C-49C2-9219-23F5A92B5AAB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ppmd_packfileutilgui</RootNamespace>
-    <AssemblyName>ppmd_packfileutilgui</AssemblyName>
+    <RootNamespace>ppmd_packfileutil_gui</RootNamespace>
+    <AssemblyName>ppmd_packfileutil_gui</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +37,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -59,58 +45,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\fileinputoutput_form.cs">
+    <Compile Include="..\common\fileinputoutput_form.cs">
+      <Link>fileinputoutput_form.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\fileinputoutput_form.Designer.cs">
+    <Compile Include="..\common\fileinputoutput_form.designer.cs">
+      <Link>fileinputoutput_form.designer.cs</Link>
       <DependentUpon>fileinputoutput_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\packfileutil_gui\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
+    <Compile Include="..\common\utility_launcher.cs">
+      <Link>utility_launcher.cs</Link>
     </Compile>
-    <Compile Include="Properties\packfileutil_gui\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="src\packfileutil_gui\packfileutil_form.cs">
+    <Compile Include="packfileutil_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\packfileutil_gui\packfileutil_form.Designer.cs">
+    <Compile Include="packfileutil_form.Designer.cs">
       <DependentUpon>packfileutil_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\packfileutil_gui\packfileutil_main.cs" />
-    <Compile Include="src\utility_launcher.cs" />
-    <EmbeddedResource Include="src\fileinputoutput_form.resx">
+    <Compile Include="packfileutil_Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\common\fileinputoutput_form.resx">
+      <Link>fileinputoutput_form.resx</Link>
       <DependentUpon>fileinputoutput_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\packfileutil_gui\Resources.resx">
+    <EmbeddedResource Include="packfileutil_form.resx">
+      <DependentUpon>packfileutil_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\packfileutil_gui\packfileutil_form.resx">
-      <DependentUpon>packfileutil_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="Properties\packfileutil_gui\AssemblyInfo.cs" />
-    <None Include="packfileutil_gui.config" />
-    <None Include="Properties\packfileutil_gui\Settings.settings">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

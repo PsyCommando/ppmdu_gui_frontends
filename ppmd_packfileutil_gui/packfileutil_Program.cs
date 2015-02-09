@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ppmd_frontends
+namespace ppmd_packfileutil_gui
 {
-    static class KaoutilProgram
+    static class packfileutil_Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +15,7 @@ namespace ppmd_frontends
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KaoutilForm());
+            Application.Run(new packfileutil_form());
         }
     }
 }

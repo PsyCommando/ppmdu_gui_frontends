@@ -9,10 +9,14 @@ namespace FrontendCommon
 {
     public static class UtilityLauncher
     {
+        private const string LOG_FILE_PREFIX = "execlog_";
+        private const string LOG_FILE_SUFFIX = ".log";
+
         public static void ExecuteUtility( IWin32Window parentWindow, String utilityName, String args, bool hideWindow = false )
         {
             try
             {
+                System.IO.StreamWriter fstr = System.IO.File.CreateText(LOG_FILE_PREFIX + utilityName + LOG_FILE_SUFFIX);
                 string cwd = System.IO.Directory.GetCurrentDirectory();
                 string AppPath = cwd + "\\" + utilityName;
 
@@ -28,6 +32,8 @@ namespace FrontendCommon
                     startInfo.WorkingDirectory = System.IO.Directory.GetCurrentDirectory();
                     startInfo.FileName = AppPath;
                     startInfo.Arguments = args;
+                    startInfo.RedirectStandardOutput = true;
+                    startInfo.RedirectStandardError = true;
 
                     if (hideWindow)
                         startInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -37,8 +43,18 @@ namespace FrontendCommon
                     using (Process exeProcess = Process.Start(startInfo))
                     {
                         exeProcess.WaitForExit();
-                    }
 
+                        fstr.Write(exeProcess.StandardOutput.ReadToEnd());
+                        string errorstream = exeProcess.StandardError.ReadToEnd();
+                        fstr.Write( errorstream );
+                        fstr.Flush();
+                        fstr.Close();
+
+                        if (exeProcess.ExitCode != 0)
+                        {
+                            MessageBox.Show(parentWindow, "Kaoutil returned code " + exeProcess.ExitCode + ", the operation may have failed.\n" + errorstream, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
                 else
                 {
