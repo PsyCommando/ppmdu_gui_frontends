@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppmd_packfileutil_gui", "pp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppmd_kaoutil_gui", "ppmd_kaoutil_gui\ppmd_kaoutil_gui.csproj", "{601BBDEE-4F6F-44B2-A892-07FE7E247E77}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A534AD4F-2A1B-4869-9A8B-4C5B4083B584}"
+	ProjectSection(SolutionItems) = preProject
+		DONT_FORGET_TO_ADD_COMMON_CODE_AS_LINK_OR_AS_ASSEMBLY!.txt = DONT_FORGET_TO_ADD_COMMON_CODE_AS_LINK_OR_AS_ASSEMBLY!.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
