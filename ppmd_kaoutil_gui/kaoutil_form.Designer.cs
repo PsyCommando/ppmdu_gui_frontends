@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kaoutil_form));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpOptions = new System.Windows.Forms.GroupBox();
+            this.grpOutImgType = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.optRaw = new System.Windows.Forms.RadioButton();
             this.optBMP = new System.Windows.Forms.RadioButton();
@@ -40,36 +40,41 @@
             this.chkNbSlots = new System.Windows.Forms.CheckBox();
             this.ttipKaomado = new System.Windows.Forms.ToolTip(this.components);
             this.btnExec = new System.Windows.Forms.Button();
-            this.lnkGithub = new System.Windows.Forms.LinkLabel();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.statBar = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lnkStatHomePage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerResetStatus = new System.Windows.Forms.Timer(this.components);
+            this.grpOptions.SuspendLayout();
+            this.grpOutImgType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numNbSlots)).BeginInit();
+            this.statBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpOptions
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.numNbSlots);
-            this.groupBox1.Controls.Add(this.chkNbSlots);
-            this.groupBox1.Location = new System.Drawing.Point(11, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(214, 145);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Options";
+            this.grpOptions.Controls.Add(this.grpOutImgType);
+            this.grpOptions.Controls.Add(this.numNbSlots);
+            this.grpOptions.Controls.Add(this.chkNbSlots);
+            this.grpOptions.Location = new System.Drawing.Point(11, 64);
+            this.grpOptions.Name = "grpOptions";
+            this.grpOptions.Size = new System.Drawing.Size(214, 145);
+            this.grpOptions.TabIndex = 20;
+            this.grpOptions.TabStop = false;
+            this.grpOptions.Text = "Options";
             // 
-            // groupBox2
+            // grpOutImgType
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.optRaw);
-            this.groupBox2.Controls.Add(this.optBMP);
-            this.groupBox2.Controls.Add(this.optPNG);
-            this.groupBox2.Location = new System.Drawing.Point(6, 43);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(202, 95);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Output Image Format";
+            this.grpOutImgType.Controls.Add(this.label3);
+            this.grpOutImgType.Controls.Add(this.optRaw);
+            this.grpOutImgType.Controls.Add(this.optBMP);
+            this.grpOutImgType.Controls.Add(this.optPNG);
+            this.grpOutImgType.Location = new System.Drawing.Point(6, 43);
+            this.grpOutImgType.Name = "grpOutImgType";
+            this.grpOutImgType.Size = new System.Drawing.Size(202, 95);
+            this.grpOutImgType.TabIndex = 3;
+            this.grpOutImgType.TabStop = false;
+            this.grpOutImgType.Text = "Output Image Format";
             // 
             // label3
             // 
@@ -156,7 +161,7 @@
             // 
             // btnExec
             // 
-            this.btnExec.Location = new System.Drawing.Point(565, 159);
+            this.btnExec.Location = new System.Drawing.Point(565, 186);
             this.btnExec.Name = "btnExec";
             this.btnExec.Size = new System.Drawing.Size(95, 23);
             this.btnExec.TabIndex = 21;
@@ -164,28 +169,60 @@
             this.btnExec.UseVisualStyleBackColor = true;
             this.btnExec.Click += new System.EventHandler(this.btnExec_Click);
             // 
-            // lnkGithub
+            // statBar
             // 
-            this.lnkGithub.AutoSize = true;
-            this.lnkGithub.Location = new System.Drawing.Point(522, 190);
-            this.lnkGithub.Name = "lnkGithub";
-            this.lnkGithub.Size = new System.Drawing.Size(138, 13);
-            this.lnkGithub.TabIndex = 22;
-            this.lnkGithub.TabStop = true;
-            this.lnkGithub.Text = "PPMD Utilities GitHub Page";
+            this.statBar.GripMargin = new System.Windows.Forms.Padding(0);
+            this.statBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.toolStripStatusLabel2,
+            this.lnkStatHomePage});
+            this.statBar.Location = new System.Drawing.Point(0, 220);
+            this.statBar.Name = "statBar";
+            this.statBar.Size = new System.Drawing.Size(664, 22);
+            this.statBar.SizingGrip = false;
+            this.statBar.TabIndex = 23;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.lblStatus.Size = new System.Drawing.Size(42, 17);
+            this.lblStatus.Text = "Ready!";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(455, 17);
+            this.toolStripStatusLabel2.Spring = true;
+            // 
+            // lnkStatHomePage
+            // 
+            this.lnkStatHomePage.IsLink = true;
+            this.lnkStatHomePage.Name = "lnkStatHomePage";
+            this.lnkStatHomePage.Size = new System.Drawing.Size(152, 17);
+            this.lnkStatHomePage.Text = "PPMD Utilities GitHub Page";
+            // 
+            // timerResetStatus
+            // 
+            this.timerResetStatus.Interval = 2500;
+            this.timerResetStatus.Tick += new System.EventHandler(this.timerResetStatus_Tick);
             // 
             // kaoutil_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 212);
-            this.Controls.Add(this.lnkGithub);
+            this.ClientSize = new System.Drawing.Size(664, 242);
+            this.Controls.Add(this.statBar);
             this.Controls.Add(this.btnExec);
-            this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(680, 250);
-            this.MinimumSize = new System.Drawing.Size(680, 250);
+            this.Controls.Add(this.grpOptions);
+            this.MaximumSize = new System.Drawing.Size(680, 280);
+            this.MinimumSize = new System.Drawing.Size(680, 280);
             this.Name = "kaoutil_form";
             this.Text = "ppmd_kaoutil";
+            this.Controls.SetChildIndex(this.grpOptions, 0);
+            this.Controls.SetChildIndex(this.btnExec, 0);
+            this.Controls.SetChildIndex(this.statBar, 0);
             this.Controls.SetChildIndex(this.txtInPath, 0);
             this.Controls.SetChildIndex(this.txtOutPath, 0);
             this.Controls.SetChildIndex(this.btnOutBrowse, 0);
@@ -194,14 +231,13 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btnInBrowseDir, 0);
             this.Controls.SetChildIndex(this.btnOutBrowseDir, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.btnExec, 0);
-            this.Controls.SetChildIndex(this.lnkGithub, 0);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpOptions.ResumeLayout(false);
+            this.grpOptions.PerformLayout();
+            this.grpOutImgType.ResumeLayout(false);
+            this.grpOutImgType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numNbSlots)).EndInit();
+            this.statBar.ResumeLayout(false);
+            this.statBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,17 +245,21 @@
 
         #endregion
         
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpOptions;
         private System.Windows.Forms.NumericUpDown numNbSlots;
         private System.Windows.Forms.CheckBox chkNbSlots;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpOutImgType;
         private System.Windows.Forms.RadioButton optRaw;
         private System.Windows.Forms.RadioButton optBMP;
         private System.Windows.Forms.RadioButton optPNG;
         private System.Windows.Forms.ToolTip ttipKaomado;
         private System.Windows.Forms.Button btnExec;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel lnkGithub;
+        private System.Windows.Forms.StatusStrip statBar;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.Timer timerResetStatus;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lnkStatHomePage;
     }
 }
 

@@ -118,10 +118,6 @@
             this.txtInPath.TextChanged += new System.EventHandler(this.txtInPath_TextChanged);
             this.txtInPath.Leave += new System.EventHandler(this.txtInPath_Leave);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // fileinputoutput_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

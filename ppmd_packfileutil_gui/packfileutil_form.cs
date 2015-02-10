@@ -50,9 +50,24 @@ namespace ppmd_packfileutil_gui
                 MessageBox.Show(this,"The input path cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void EnableDisableEditableControls(bool enable)
+        {
+            this.btnExec.Enabled = enable;
+            this.btnInBrowse.Enabled = enable;
+            this.btnInBrowseDir.Enabled = enable;
+            this.btnOutBrowse.Enabled = enable;
+            this.btnOutBrowseDir.Enabled = enable;
+
+            this.grpOptions.Enabled = enable;
+
+            this.txtInPath.Enabled = enable;
+            this.txtOutPath.Enabled = enable;
+        }
+
         private void DoExecuteUtility()
         {
-            this.Enabled = false;
+            SetStatusWorking();
+            EnableDisableEditableControls(false);
             try
             {
                 utilitylaunchparams execparams = GatherParameters();
@@ -61,13 +76,34 @@ namespace ppmd_packfileutil_gui
                 if (execparams.foffset != 0)
                     args = "-a " + execparams.foffset + " " + args;
 
-                FrontendCommon.UtilityLauncher.ExecuteUtility(this, PPMD_PFU_NAME, args);
+                FrontendCommon.UtilityLauncher myUtility = new FrontendCommon.UtilityLauncher(this, PPMD_PFU_NAME);
+
+                if (myUtility.StartUtil(args))
+                {
+                    myUtility.WaitUntilFinished();
+                }
+
+                if (myUtility.GetReturnCode() == 0)
+                    SetStatusSuccess();
+                else
+                    SetStatusFailure();
+                
+                //if( FrontendCommon.UtilityLauncher.ExecuteUtility(this, PPMD_PFU_NAME, args) )
+                //{
+
+                //}
+                //else
+                //{
+
+                //}
             }
             catch (Exception e)
             {
                 MessageBox.Show(this, e.Message, "Exception!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SetStatusFailure();
             }
-            this.Enabled = true;
+            EnableDisableEditableControls(true);
+            timerResetStatus.Start();
         }
 
         private utilitylaunchparams GatherParameters()
@@ -99,19 +135,45 @@ namespace ppmd_packfileutil_gui
             return myParams;
         }
 
-        private void lnkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(URL_TO_GITHUB);
-        }
-
         private void chkHex_CheckedChanged(object sender, EventArgs e)
         {
             numForcedOffset.Hexadecimal = chkHex.Checked;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void SetStatusReady()
         {
-            Application.Exit();
+            lblStatus.Text = "Ready!";
+            lblStatus.ForeColor = Color.Black;
+        }
+
+        private void SetStatusWorking()
+        {
+            lblStatus.Text = "Working...";
+            lblStatus.ForeColor = Color.DarkGoldenrod;
+        }
+
+        private void SetStatusSuccess()
+        {
+            lblStatus.Text = "Success!!";
+            lblStatus.ForeColor = Color.Green;
+        }
+
+        private void SetStatusFailure()
+        {
+            lblStatus.Text = "Failure..";
+            lblStatus.ForeColor = Color.Crimson;
+        }
+
+        private void timerResetStatus_Tick(object sender, EventArgs e)
+        {
+            SetStatusReady();
+            //lblConOut.Text = "";
+            timerResetStatus.Stop();
+        }
+
+        private void lnkHomePage_Click(object sender, EventArgs e)
+        {
+            Process.Start(URL_TO_GITHUB);
         }
     }
     

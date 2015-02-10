@@ -32,18 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(packfileutil_form));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpOptions = new System.Windows.Forms.GroupBox();
             this.chkHex = new System.Windows.Forms.CheckBox();
             this.numForcedOffset = new System.Windows.Forms.NumericUpDown();
             this.lblForcedOffset = new System.Windows.Forms.Label();
             this.chkPokeSprite = new System.Windows.Forms.CheckBox();
             this.btnExec = new System.Windows.Forms.Button();
             this.ttip = new System.Windows.Forms.ToolTip(this.components);
-            this.lnkGithub = new System.Windows.Forms.LinkLabel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.groupBox1.SuspendLayout();
+            this.statBar = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatBarFiller = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lnkHomePage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerResetStatus = new System.Windows.Forms.Timer(this.components);
+            this.grpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numForcedOffset)).BeginInit();
+            this.statBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -52,18 +56,18 @@
             this.openFileDialog1.CheckFileExists = false;
             this.openFileDialog1.ValidateNames = false;
             // 
-            // groupBox1
+            // grpOptions
             // 
-            this.groupBox1.Controls.Add(this.chkHex);
-            this.groupBox1.Controls.Add(this.numForcedOffset);
-            this.groupBox1.Controls.Add(this.lblForcedOffset);
-            this.groupBox1.Controls.Add(this.chkPokeSprite);
-            this.groupBox1.Location = new System.Drawing.Point(13, 62);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 70);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Options";
+            this.grpOptions.Controls.Add(this.chkHex);
+            this.grpOptions.Controls.Add(this.numForcedOffset);
+            this.grpOptions.Controls.Add(this.lblForcedOffset);
+            this.grpOptions.Controls.Add(this.chkPokeSprite);
+            this.grpOptions.Location = new System.Drawing.Point(13, 62);
+            this.grpOptions.Name = "grpOptions";
+            this.grpOptions.Size = new System.Drawing.Size(254, 70);
+            this.grpOptions.TabIndex = 6;
+            this.grpOptions.TabStop = false;
+            this.grpOptions.Text = "Options";
             // 
             // chkHex
             // 
@@ -131,7 +135,7 @@
             // 
             // btnExec
             // 
-            this.btnExec.Location = new System.Drawing.Point(565, 67);
+            this.btnExec.Location = new System.Drawing.Point(565, 117);
             this.btnExec.Name = "btnExec";
             this.btnExec.Size = new System.Drawing.Size(95, 23);
             this.btnExec.TabIndex = 7;
@@ -145,52 +149,63 @@
             this.ttip.InitialDelay = 500;
             this.ttip.ReshowDelay = 100;
             // 
-            // lnkGithub
-            // 
-            this.lnkGithub.AutoSize = true;
-            this.lnkGithub.Location = new System.Drawing.Point(522, 122);
-            this.lnkGithub.Name = "lnkGithub";
-            this.lnkGithub.Size = new System.Drawing.Size(138, 13);
-            this.lnkGithub.TabIndex = 8;
-            this.lnkGithub.TabStop = true;
-            this.lnkGithub.Text = "PPMD Utilities GitHub Page";
-            this.ttip.SetToolTip(this.lnkGithub, "For source code, documentation, and more tools, visit my github profile.");
-            this.lnkGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGithub_LinkClicked);
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(565, 96);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(95, 23);
-            this.btnClose.TabIndex = 9;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // folderBrowserDialog1
             // 
             this.folderBrowserDialog1.Description = "Pick a folder";
+            // 
+            // statBar
+            // 
+            this.statBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.lblStatBarFiller,
+            this.lnkHomePage});
+            this.statBar.Location = new System.Drawing.Point(0, 160);
+            this.statBar.Name = "statBar";
+            this.statBar.Size = new System.Drawing.Size(664, 22);
+            this.statBar.SizingGrip = false;
+            this.statBar.TabIndex = 20;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(42, 17);
+            this.lblStatus.Text = "Ready!";
+            // 
+            // lblStatBarFiller
+            // 
+            this.lblStatBarFiller.Name = "lblStatBarFiller";
+            this.lblStatBarFiller.Size = new System.Drawing.Size(455, 17);
+            this.lblStatBarFiller.Spring = true;
+            // 
+            // lnkHomePage
+            // 
+            this.lnkHomePage.IsLink = true;
+            this.lnkHomePage.Name = "lnkHomePage";
+            this.lnkHomePage.Size = new System.Drawing.Size(152, 17);
+            this.lnkHomePage.Text = "PPMD Utilities GitHub Page";
+            this.lnkHomePage.ToolTipText = "For source code, documentation, and more tools, visit my github profile.";
+            this.lnkHomePage.Click += new System.EventHandler(this.lnkHomePage_Click);
+            // 
+            // timerResetStatus
+            // 
+            this.timerResetStatus.Interval = 2500;
+            this.timerResetStatus.Tick += new System.EventHandler(this.timerResetStatus_Tick);
             // 
             // packfileutil_form
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(664, 142);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lnkGithub);
+            this.ClientSize = new System.Drawing.Size(664, 182);
+            this.Controls.Add(this.statBar);
             this.Controls.Add(this.btnExec);
-            this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(680, 180);
+            this.Controls.Add(this.grpOptions);
+            this.MaximumSize = new System.Drawing.Size(0, 0);
             this.MinimumSize = new System.Drawing.Size(680, 180);
             this.Name = "packfileutil_form";
             this.Text = "ppmd Pack File Utility";
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.grpOptions, 0);
             this.Controls.SetChildIndex(this.btnExec, 0);
-            this.Controls.SetChildIndex(this.lnkGithub, 0);
-            this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.txtInPath, 0);
             this.Controls.SetChildIndex(this.txtOutPath, 0);
             this.Controls.SetChildIndex(this.btnOutBrowse, 0);
@@ -199,9 +214,12 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btnInBrowseDir, 0);
             this.Controls.SetChildIndex(this.btnOutBrowseDir, 0);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Controls.SetChildIndex(this.statBar, 0);
+            this.grpOptions.ResumeLayout(false);
+            this.grpOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numForcedOffset)).EndInit();
+            this.statBar.ResumeLayout(false);
+            this.statBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,16 +229,19 @@
         
        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpOptions;
         private System.Windows.Forms.Label lblForcedOffset;
         private System.Windows.Forms.CheckBox chkPokeSprite;
         private System.Windows.Forms.Button btnExec;
         private System.Windows.Forms.ToolTip ttip;
-        private System.Windows.Forms.LinkLabel lnkGithub;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.NumericUpDown numForcedOffset;
         private System.Windows.Forms.CheckBox chkHex;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.StatusStrip statBar;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatBarFiller;
+        private System.Windows.Forms.ToolStripStatusLabel lnkHomePage;
+        private System.Windows.Forms.Timer timerResetStatus;
     }
 }
 
