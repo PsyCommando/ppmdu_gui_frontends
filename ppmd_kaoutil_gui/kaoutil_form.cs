@@ -17,14 +17,6 @@ namespace ppmd_kaoutil_gui
 
     public partial class kaoutil_form : fileinputoutput_form
     {
-        //private enum animstate
-        //{
-        //    READY,
-        //    WORKING,
-        //    SUCCESS,
-        //    FAILURE,
-        //}
-
         private struct utilLaunchParams
         {
             public enum outImgTy
@@ -39,10 +31,6 @@ namespace ppmd_kaoutil_gui
             public string outputPath;
         }
 
-        //private animstate m_curanim;
-        //private int       m_curanimfrm;
-        //private System.IO.StreamReader m_utilOut;
-
         public const string KAOMADO_FILEX = ".kao";
         public const string KAOMADO_EXE = "ppmd_kaoutil.exe";
         private const string URL_TO_GITHUB = "https://github.com/PsyCommando";
@@ -50,10 +38,7 @@ namespace ppmd_kaoutil_gui
         public kaoutil_form()
         {
             InitializeComponent();
-            //m_curanim = animstate.READY;
-            //m_curanimfrm = 0;
             SetStatusReady();
-            //m_utilOut = null;
         }
 
         public override string GetOutputFileExtension()
@@ -110,27 +95,18 @@ namespace ppmd_kaoutil_gui
 
                 if( myUtility.StartUtil(args) )
                 {
-                    //m_utilOut = myUtility.GetOutputStream();
                     myUtility.WaitUntilFinished();
-                    //m_utilOut = null;
                 }
 
                 if( myUtility.GetReturnCode() == 0 )
                     SetStatusSuccess();
                 else
                     SetStatusFailure();
-
-                //if (FrontendCommon.UtilityLauncher.ExecuteUtility(this, KAOMADO_EXE, args))
-                //    SetStatusSuccess();
-                //else
-                //    SetStatusFailure();
                 
             }
             catch (Exception e)
             {
                 MessageBox.Show(this, e.Message, "Exception!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //tmrUpdateWorkStatus.Stop();
-                //m_utilOut = null;
                 SetStatusFailure();
             }
             EnableDisableEditableControls(true);
@@ -183,82 +159,25 @@ namespace ppmd_kaoutil_gui
         {
             lblStatus.Text = "Ready!";
             lblStatus.ForeColor = Color.Black;
-            //m_curanim = animstate.READY;
-            //lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.idle0;
         }
 
         private void SetStatusWorking()
         {
             lblStatus.Text = "Working...";
             lblStatus.ForeColor = Color.DarkGoldenrod;
-            //m_curanim = animstate.WORKING;
-            //lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.working0;
         }
 
         private void SetStatusSuccess()
         {
             lblStatus.Text = "Success!!";
             lblStatus.ForeColor = Color.Green;
-            //m_curanim = animstate.SUCCESS;
-            //lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.idle0;
         }
 
         private void SetStatusFailure()
         {
             lblStatus.Text = "Failure..";
             lblStatus.ForeColor = Color.Crimson;
-            //m_curanim = animstate.FAILURE;
-            //lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.fail0;
         }
-
-        //private void timerAnimPooch_Tick(object sender, EventArgs e)
-        //{
-        //    //Set current frame
-        //    const int nbfrms = 8;
-        //    if (m_curanimfrm < nbfrms)
-        //        ++m_curanimfrm;
-        //    else
-        //        m_curanimfrm = 0;
-
-        //    //Display frame
-        //    if( m_curanim == animstate.READY )
-        //        DoAnimReady(m_curanimfrm);
-        //    else if (m_curanim == animstate.WORKING)
-        //        DoAnimWorking(m_curanimfrm);
-        //    else if (m_curanim == animstate.SUCCESS)
-        //        DoAnimSuccess(m_curanimfrm);
-        //    else if (m_curanim == animstate.FAILURE)
-        //        DoAnimFail(m_curanimfrm);
-        //}
-
-        //private void DoAnimReady( int frame )
-        //{
-        //    if(frame % 2 == 0)
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.idle0;
-        //    else
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.idle1;
-        //}
-
-        //private void DoAnimWorking(int frame)
-        //{
-        //    if (frame % 2 == 0)
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.working0;
-        //    else
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.working1;
-        //}
-
-        //private void DoAnimSuccess(int frame)
-        //{
-        //    lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.idle0;
-        //}
-
-        //private void DoAnimFail(int frame)
-        //{
-        //    if (frame % 2 == 0)
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.fail0;
-        //    else
-        //        lblStatus.Image = global::ppmd_kaoutil_gui.Properties.Resources.fail1;
-        //}
 
         private void timerResetStatus_Tick(object sender, EventArgs e)
         {
@@ -271,13 +190,5 @@ namespace ppmd_kaoutil_gui
         {
             Process.Start(URL_TO_GITHUB);
         }
-
-        //private void tmrUpdateWorkStatus_Tick(object sender, EventArgs e)
-        //{
-        //    if (m_utilOut != null && !m_utilOut.EndOfStream )
-        //    {
-        //        lblConOut.Text =  m_utilOut.ReadLine();
-        //    }
-        //}
     }
 }

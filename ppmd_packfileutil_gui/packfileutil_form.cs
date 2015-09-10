@@ -37,11 +37,6 @@ namespace ppmd_packfileutil_gui
             return PACK_FILEX;
         }
 
-        private void txtForcedOffset_TextChanged(object sender, EventArgs e)
-        {
-            //Check if offset valid, change bg color appropriately
-        }
-
         private void btnExec_Click(object sender, EventArgs e)
         {
             if (txtInPath.Text != String.Empty)
@@ -87,15 +82,6 @@ namespace ppmd_packfileutil_gui
                     SetStatusSuccess();
                 else
                     SetStatusFailure();
-                
-                //if( FrontendCommon.UtilityLauncher.ExecuteUtility(this, PPMD_PFU_NAME, args) )
-                //{
-
-                //}
-                //else
-                //{
-
-                //}
             }
             catch (Exception e)
             {
@@ -167,7 +153,6 @@ namespace ppmd_packfileutil_gui
         private void timerResetStatus_Tick(object sender, EventArgs e)
         {
             SetStatusReady();
-            //lblConOut.Text = "";
             timerResetStatus.Stop();
         }
 
