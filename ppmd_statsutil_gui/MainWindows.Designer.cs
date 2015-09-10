@@ -55,6 +55,12 @@
             this.grpEdits = new System.Windows.Forms.GroupBox();
             this.splitEditData = new System.Windows.Forms.SplitContainer();
             this.tvEditableData = new System.Windows.Forms.TreeView();
+            this.tbllayEditData = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnEditOutside = new System.Windows.Forms.Button();
+            this.btnOpenDir = new System.Windows.Forms.Button();
+            this.lnkGithub = new System.Windows.Forms.LinkLabel();
+            this.lnkWiki = new System.Windows.Forms.LinkLabel();
             this.grpExport = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnImport = new System.Windows.Forms.Button();
@@ -69,12 +75,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tbllayEditData = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnEditOutside = new System.Windows.Forms.Button();
-            this.btnOpenDir = new System.Windows.Forms.Button();
-            this.lnkWiki = new System.Windows.Forms.LinkLabel();
-            this.lnkGithub = new System.Windows.Forms.LinkLabel();
             this.MainLayout.SuspendLayout();
             this.grpPaths.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -86,13 +86,13 @@
             this.splitEditData.Panel1.SuspendLayout();
             this.splitEditData.Panel2.SuspendLayout();
             this.splitEditData.SuspendLayout();
+            this.tbllayEditData.SuspendLayout();
             this.grpExport.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.contmenuCheckImport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fswExportedData)).BeginInit();
-            this.tbllayEditData.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainLayout
@@ -425,7 +425,7 @@
             // 
             this.splitEditData.Panel2.Controls.Add(this.tbllayEditData);
             this.splitEditData.Size = new System.Drawing.Size(294, 389);
-            this.splitEditData.SplitterDistance = 352;
+            this.splitEditData.SplitterDistance = 351;
             this.splitEditData.TabIndex = 0;
             // 
             // tvEditableData
@@ -433,8 +433,82 @@
             this.tvEditableData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvEditableData.Location = new System.Drawing.Point(0, 0);
             this.tvEditableData.Name = "tvEditableData";
-            this.tvEditableData.Size = new System.Drawing.Size(294, 352);
+            this.tvEditableData.Size = new System.Drawing.Size(294, 351);
             this.tvEditableData.TabIndex = 1;
+            // 
+            // tbllayEditData
+            // 
+            this.tbllayEditData.ColumnCount = 4;
+            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllayEditData.Controls.Add(this.btnEdit, 0, 0);
+            this.tbllayEditData.Controls.Add(this.btnEditOutside, 1, 0);
+            this.tbllayEditData.Controls.Add(this.btnOpenDir, 2, 0);
+            this.tbllayEditData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbllayEditData.Location = new System.Drawing.Point(0, 0);
+            this.tbllayEditData.Name = "tbllayEditData";
+            this.tbllayEditData.RowCount = 1;
+            this.tbllayEditData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbllayEditData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbllayEditData.Size = new System.Drawing.Size(294, 34);
+            this.tbllayEditData.TabIndex = 7;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Location = new System.Drawing.Point(3, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(67, 28);
+            this.btnEdit.TabIndex = 0;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnEditOutside
+            // 
+            this.btnEditOutside.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEditOutside.Location = new System.Drawing.Point(76, 3);
+            this.btnEditOutside.Name = "btnEditOutside";
+            this.btnEditOutside.Size = new System.Drawing.Size(67, 28);
+            this.btnEditOutside.TabIndex = 1;
+            this.btnEditOutside.Text = "Open";
+            this.btnEditOutside.UseVisualStyleBackColor = true;
+            this.btnEditOutside.Click += new System.EventHandler(this.btnEditOutside_Click);
+            // 
+            // btnOpenDir
+            // 
+            this.tbllayEditData.SetColumnSpan(this.btnOpenDir, 2);
+            this.btnOpenDir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpenDir.Location = new System.Drawing.Point(149, 3);
+            this.btnOpenDir.Name = "btnOpenDir";
+            this.btnOpenDir.Size = new System.Drawing.Size(142, 28);
+            this.btnOpenDir.TabIndex = 2;
+            this.btnOpenDir.Text = "Open Directory";
+            this.btnOpenDir.UseVisualStyleBackColor = true;
+            this.btnOpenDir.Click += new System.EventHandler(this.btnOpenDir_Click);
+            // 
+            // lnkGithub
+            // 
+            this.lnkGithub.AutoSize = true;
+            this.lnkGithub.Location = new System.Drawing.Point(207, 520);
+            this.lnkGithub.Name = "lnkGithub";
+            this.lnkGithub.Size = new System.Drawing.Size(116, 13);
+            this.lnkGithub.TabIndex = 4;
+            this.lnkGithub.TabStop = true;
+            this.lnkGithub.Text = "Visit Github for updates";
+            // 
+            // lnkWiki
+            // 
+            this.lnkWiki.AutoSize = true;
+            this.lnkWiki.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnkWiki.Location = new System.Drawing.Point(3, 520);
+            this.lnkWiki.Name = "lnkWiki";
+            this.lnkWiki.Size = new System.Drawing.Size(133, 13);
+            this.lnkWiki.TabIndex = 3;
+            this.lnkWiki.TabStop = true;
+            this.lnkWiki.Text = "Visit the wiki for PMD2 info";
             // 
             // grpExport
             // 
@@ -565,80 +639,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tbllayEditData
-            // 
-            this.tbllayEditData.ColumnCount = 4;
-            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbllayEditData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbllayEditData.Controls.Add(this.btnEdit, 0, 0);
-            this.tbllayEditData.Controls.Add(this.btnEditOutside, 1, 0);
-            this.tbllayEditData.Controls.Add(this.btnOpenDir, 2, 0);
-            this.tbllayEditData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbllayEditData.Location = new System.Drawing.Point(0, 0);
-            this.tbllayEditData.Name = "tbllayEditData";
-            this.tbllayEditData.RowCount = 1;
-            this.tbllayEditData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbllayEditData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbllayEditData.Size = new System.Drawing.Size(294, 33);
-            this.tbllayEditData.TabIndex = 7;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Location = new System.Drawing.Point(3, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(67, 27);
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnEditOutside
-            // 
-            this.btnEditOutside.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEditOutside.Location = new System.Drawing.Point(76, 3);
-            this.btnEditOutside.Name = "btnEditOutside";
-            this.btnEditOutside.Size = new System.Drawing.Size(67, 27);
-            this.btnEditOutside.TabIndex = 1;
-            this.btnEditOutside.Text = "Open";
-            this.btnEditOutside.UseVisualStyleBackColor = true;
-            this.btnEditOutside.Click += new System.EventHandler(this.btnEditOutside_Click);
-            // 
-            // btnOpenDir
-            // 
-            this.tbllayEditData.SetColumnSpan(this.btnOpenDir, 2);
-            this.btnOpenDir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenDir.Location = new System.Drawing.Point(149, 3);
-            this.btnOpenDir.Name = "btnOpenDir";
-            this.btnOpenDir.Size = new System.Drawing.Size(142, 27);
-            this.btnOpenDir.TabIndex = 2;
-            this.btnOpenDir.Text = "Open Directory";
-            this.btnOpenDir.UseVisualStyleBackColor = true;
-            this.btnOpenDir.Click += new System.EventHandler(this.btnOpenDir_Click);
-            // 
-            // lnkWiki
-            // 
-            this.lnkWiki.AutoSize = true;
-            this.lnkWiki.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnkWiki.Location = new System.Drawing.Point(3, 520);
-            this.lnkWiki.Name = "lnkWiki";
-            this.lnkWiki.Size = new System.Drawing.Size(133, 13);
-            this.lnkWiki.TabIndex = 3;
-            this.lnkWiki.TabStop = true;
-            this.lnkWiki.Text = "Visit the wiki for PMD2 info";
-            // 
-            // lnkGithub
-            // 
-            this.lnkGithub.AutoSize = true;
-            this.lnkGithub.Location = new System.Drawing.Point(207, 520);
-            this.lnkGithub.Name = "lnkGithub";
-            this.lnkGithub.Size = new System.Drawing.Size(116, 13);
-            this.lnkGithub.TabIndex = 4;
-            this.lnkGithub.TabStop = true;
-            this.lnkGithub.Text = "Visit Github for updates";
-            // 
             // MainWindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,13 +662,13 @@
             this.splitEditData.Panel1.ResumeLayout(false);
             this.splitEditData.Panel2.ResumeLayout(false);
             this.splitEditData.ResumeLayout(false);
+            this.tbllayEditData.ResumeLayout(false);
             this.grpExport.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.contmenuCheckImport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fswExportedData)).EndInit();
-            this.tbllayEditData.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
