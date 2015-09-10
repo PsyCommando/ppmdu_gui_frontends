@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ppmd_kaoutil_gui")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Creative Commons 0")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
