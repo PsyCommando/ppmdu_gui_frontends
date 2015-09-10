@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("GameText.txt");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("pokemon_data");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("move_data");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("item_data");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("OutputDirectory", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("GameText.txt");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("pokemon_data");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("move_data");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("item_data");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("OutputDirectory", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.MainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.grpPaths = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -399,18 +399,18 @@
             this.tvEditableData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvEditableData.Location = new System.Drawing.Point(0, 0);
             this.tvEditableData.Name = "tvEditableData";
-            treeNode6.Name = "Node2";
-            treeNode6.Text = "GameText.txt";
-            treeNode7.Name = "Node4";
-            treeNode7.Text = "pokemon_data";
-            treeNode8.Name = "Node5";
-            treeNode8.Text = "move_data";
-            treeNode9.Name = "Node6";
-            treeNode9.Text = "item_data";
-            treeNode10.Name = "OutputDir";
-            treeNode10.Text = "OutputDirectory";
+            treeNode1.Name = "Node2";
+            treeNode1.Text = "GameText.txt";
+            treeNode2.Name = "Node4";
+            treeNode2.Text = "pokemon_data";
+            treeNode3.Name = "Node5";
+            treeNode3.Text = "move_data";
+            treeNode4.Name = "Node6";
+            treeNode4.Text = "item_data";
+            treeNode5.Name = "OutputDir";
+            treeNode5.Text = "OutputDirectory";
             this.tvEditableData.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode5});
             this.tvEditableData.Size = new System.Drawing.Size(294, 347);
             this.tvEditableData.TabIndex = 1;
             // 

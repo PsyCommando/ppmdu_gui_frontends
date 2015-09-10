@@ -59,15 +59,5 @@ namespace ppmd_statsutil_gui.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dw_icon_bin {
-            get {
-                object obj = ResourceManager.GetObject("dw_icon.bin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
