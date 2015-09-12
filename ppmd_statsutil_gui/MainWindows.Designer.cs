@@ -431,10 +431,12 @@
             // tvEditableData
             // 
             this.tvEditableData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvEditableData.Enabled = false;
             this.tvEditableData.Location = new System.Drawing.Point(0, 0);
             this.tvEditableData.Name = "tvEditableData";
             this.tvEditableData.Size = new System.Drawing.Size(294, 351);
             this.tvEditableData.TabIndex = 1;
+            this.tvEditableData.Visible = false;
             // 
             // tbllayEditData
             // 
@@ -469,6 +471,7 @@
             // btnEditOutside
             // 
             this.btnEditOutside.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEditOutside.Enabled = false;
             this.btnEditOutside.Location = new System.Drawing.Point(76, 3);
             this.btnEditOutside.Name = "btnEditOutside";
             this.btnEditOutside.Size = new System.Drawing.Size(67, 28);
@@ -480,10 +483,9 @@
             // btnOpenDir
             // 
             this.tbllayEditData.SetColumnSpan(this.btnOpenDir, 2);
-            this.btnOpenDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenDir.Location = new System.Drawing.Point(149, 3);
             this.btnOpenDir.Name = "btnOpenDir";
-            this.btnOpenDir.Size = new System.Drawing.Size(142, 28);
+            this.btnOpenDir.Size = new System.Drawing.Size(139, 28);
             this.btnOpenDir.TabIndex = 2;
             this.btnOpenDir.Text = "Open Directory";
             this.btnOpenDir.UseVisualStyleBackColor = true;

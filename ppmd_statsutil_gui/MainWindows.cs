@@ -66,6 +66,14 @@ namespace ppmd_statsutil_gui
 
             WriteExesToCWD();
 
+            txtExportPath.BackColor = COLOR_CORRECT; //By default its correct
+
+            if (System.IO.Directory.Exists("./" + RomExtractSubdir))
+            { 
+                txtInRomPath.Text = "./" + RomExtractSubdir;
+                txtRomPath_init = true; //We initialised it
+            }
+
             MainLayout.Select();
 
         }
@@ -226,6 +234,7 @@ namespace ppmd_statsutil_gui
                     {
                         btnExtractRom.Enabled = true;
                     }
+                    m_lastExportDirectory = txtExportPath.Text;
                 }
                 else
                 {
