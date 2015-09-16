@@ -363,7 +363,7 @@
             this.Controls.Add(this.MainLayout);
             this.MinimumSize = new System.Drawing.Size(460, 360);
             this.Name = "NewMainWindow";
-            this.Text = "PPMD2 Statistics Utility";
+            this.Text = "PPMD2 Statistics Utility Frontend v0.2";
             this.grpImportExport.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
