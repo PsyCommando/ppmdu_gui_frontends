@@ -52,6 +52,7 @@
             this.ttipOutPath = new System.Windows.Forms.ToolTip(this.components);
             this.ttipGeneral = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.grpImportExport.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -67,15 +68,16 @@
             this.grpImportExport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpImportExport.Location = new System.Drawing.Point(3, 3);
             this.grpImportExport.Name = "grpImportExport";
-            this.grpImportExport.Size = new System.Drawing.Size(438, 121);
+            this.grpImportExport.Size = new System.Drawing.Size(288, 121);
             this.grpImportExport.TabIndex = 0;
             this.grpImportExport.TabStop = false;
             this.grpImportExport.Text = "Step #1 - What to Import/Export ?";
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.chklstDataSelect, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chkImportExportAll, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,7 +87,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(432, 102);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(282, 102);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // chklstDataSelect
@@ -93,6 +95,7 @@
             this.chklstDataSelect.BackColor = System.Drawing.SystemColors.MenuBar;
             this.chklstDataSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chklstDataSelect.CheckOnClick = true;
+            this.tableLayoutPanel2.SetColumnSpan(this.chklstDataSelect, 2);
             this.chklstDataSelect.ColumnWidth = 200;
             this.chklstDataSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chklstDataSelect.FormattingEnabled = true;
@@ -103,7 +106,7 @@
             "Text"});
             this.chklstDataSelect.Location = new System.Drawing.Point(3, 3);
             this.chklstDataSelect.Name = "chklstDataSelect";
-            this.chklstDataSelect.Size = new System.Drawing.Size(426, 71);
+            this.chklstDataSelect.Size = new System.Drawing.Size(276, 71);
             this.chklstDataSelect.TabIndex = 0;
             this.ttipGeneral.SetToolTip(this.chklstDataSelect, "Pick what should be imported/exported to/from the game!\r\n");
             // 
@@ -121,8 +124,9 @@
             // 
             // MainLayout
             // 
-            this.MainLayout.ColumnCount = 1;
-            this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MainLayout.ColumnCount = 2;
+            this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.21622F));
+            this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.78378F));
             this.MainLayout.Controls.Add(this.grpImportExport, 0, 0);
             this.MainLayout.Controls.Add(this.grpPaths, 0, 1);
             this.MainLayout.Controls.Add(this.grpExec, 0, 2);
@@ -139,6 +143,7 @@
             // 
             // grpPaths
             // 
+            this.MainLayout.SetColumnSpan(this.grpPaths, 2);
             this.grpPaths.Controls.Add(this.tableLayoutPanel3);
             this.grpPaths.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpPaths.Location = new System.Drawing.Point(3, 130);
@@ -239,6 +244,7 @@
             // 
             // grpExec
             // 
+            this.MainLayout.SetColumnSpan(this.grpExec, 2);
             this.grpExec.Controls.Add(this.tableLayoutPanel1);
             this.grpExec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpExec.Location = new System.Drawing.Point(3, 215);
@@ -256,6 +262,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.btnExport, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnImport, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -337,6 +344,17 @@
             this.ttipGeneral.InitialDelay = 500;
             this.ttipGeneral.ReshowDelay = 100;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(291, 55);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 13);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Visit project\'s github";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // NewMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +403,7 @@
         private System.Windows.Forms.ToolTip ttipOutPath;
         private System.Windows.Forms.ToolTip ttipGeneral;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
     }
 }

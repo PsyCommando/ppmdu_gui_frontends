@@ -15,7 +15,7 @@ namespace ppmd_statsutil_gui
 {
     public partial class NewMainWindow : Form
     {
-        private const string URLToGithub = "https://github.com/PsyCommando";
+        private const string URLToGithub = "https://github.com/PsyCommando/ppmdu_gui_frontends";
         private const string URLToWiki = "http://projectpokemon.org/wiki/Pok%C3%A9mon_Mystery_Dungeon_Explorers";
 
         public const string StatsUtil_Name = "ppmd_statsutil.exe";
@@ -486,6 +486,11 @@ namespace ppmd_statsutil_gui
                 chklstDataSelect.Enabled = false;
             else
                 chklstDataSelect.Enabled = true;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(URLToGithub);
         }
     }
 }
