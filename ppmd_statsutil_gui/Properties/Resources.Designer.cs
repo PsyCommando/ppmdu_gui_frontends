@@ -73,36 +73,6 @@ namespace ppmd_statsutil_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] libgcc_s_sjlj_1 {
-            get {
-                object obj = ResourceManager.GetObject("libgcc_s_sjlj_1", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] libstdc___6 {
-            get {
-                object obj = ResourceManager.GetObject("libstdc___6", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] ndstool {
-            get {
-                object obj = ResourceManager.GetObject("ndstool", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] ppmd_statsutil {
             get {
                 object obj = ResourceManager.GetObject("ppmd_statsutil", resourceCulture);

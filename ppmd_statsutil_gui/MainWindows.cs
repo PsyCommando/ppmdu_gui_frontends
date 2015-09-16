@@ -64,7 +64,7 @@ namespace ppmd_statsutil_gui
             chklstImport.Items.Add(Exp_PkStats, false);
             chklstImport.Items.Add(Exp_Text, false);
 
-            WriteExesToCWD();
+            //WriteExesToCWD();
 
             txtExportPath.BackColor = COLOR_CORRECT; //By default its correct
 
@@ -182,31 +182,31 @@ namespace ppmd_statsutil_gui
             return filetosave;
         }
 
-        private void WriteObjToFile( byte[] bytes, string path )
-        {
-            if (File.Exists(path))  //Don't overwrite anything
-                return;
+        //private void WriteObjToFile( byte[] bytes, string path )
+        //{
+        //    if (File.Exists(path))  //Don't overwrite anything
+        //        return;
 
-            using (FileStream fsDst = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                //byte[] bytes = (byte[])theobj;
-                fsDst.Write(bytes, 0, bytes.Length);
-                fsDst.Close();
-                fsDst.Dispose();
-            }  
-        }
+        //    using (FileStream fsDst = new FileStream(path, FileMode.Create, FileAccess.Write))
+        //    {
+        //        //byte[] bytes = (byte[])theobj;
+        //        fsDst.Write(bytes, 0, bytes.Length);
+        //        fsDst.Close();
+        //        fsDst.Dispose();
+        //    }  
+        //}
 
         /*
          * Writes the 2 required executable to the current working directory.
          */
-        private void WriteExesToCWD()
-        {
-            WriteObjToFile(Properties.Resources.ppmd_statsutil,     Path.Combine(Directory.GetCurrentDirectory(), StatsUtil_Name));
-            WriteObjToFile(Properties.Resources.gamelang,           Path.Combine(Directory.GetCurrentDirectory(), "gamelang.xml"));
-            WriteObjToFile(Properties.Resources.ndstool,            Path.Combine(Directory.GetCurrentDirectory(), "ndstool.exe"));
-            WriteObjToFile(Properties.Resources.libgcc_s_sjlj_1,    Path.Combine(Directory.GetCurrentDirectory(), "libgcc_s_sjlj-1.dll"));
-            WriteObjToFile(Properties.Resources.libstdc___6,        Path.Combine(Directory.GetCurrentDirectory(), "libstdc++-6.dll"));
-        }
+        //private void WriteExesToCWD()
+        //{
+        //    WriteObjToFile(Properties.Resources.ppmd_statsutil,     Path.Combine(Directory.GetCurrentDirectory(), StatsUtil_Name));
+        //    WriteObjToFile(Properties.Resources.gamelang,           Path.Combine(Directory.GetCurrentDirectory(), "gamelang.xml"));
+        //    WriteObjToFile(Properties.Resources.ndstool,            Path.Combine(Directory.GetCurrentDirectory(), "ndstool.exe"));
+        //    WriteObjToFile(Properties.Resources.libgcc_s_sjlj_1,    Path.Combine(Directory.GetCurrentDirectory(), "libgcc_s_sjlj-1.dll"));
+        //    WriteObjToFile(Properties.Resources.libstdc___6,        Path.Combine(Directory.GetCurrentDirectory(), "libstdc++-6.dll"));
+        //}
 
 //========================================================================================
 // App Logic

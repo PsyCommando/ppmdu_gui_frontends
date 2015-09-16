@@ -58,17 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindows.cs">
+    <Compile Include="NewMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindows.Designer.cs">
-      <DependentUpon>MainWindows.cs</DependentUpon>
+    <Compile Include="NewMainWindow.Designer.cs">
+      <DependentUpon>NewMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utilities.cs" />
     <Compile Include="utility_launcher.cs" />
-    <EmbeddedResource Include="MainWindows.resx">
-      <DependentUpon>MainWindows.cs</DependentUpon>
+    <EmbeddedResource Include="NewMainWindow.resx">
+      <DependentUpon>NewMainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -89,6 +90,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StatsUtil.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -105,9 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\gamelang.xml" />
-    <EmbeddedResource Include="Resources\ndstool.exe" />
-    <EmbeddedResource Include="Resources\libstdc++-6.dll" />
-    <EmbeddedResource Include="Resources\libgcc_s_sjlj-1.dll" />
     <EmbeddedResource Include="Resources\ppmd_statsutil.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
