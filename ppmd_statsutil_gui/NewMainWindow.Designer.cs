@@ -46,13 +46,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ttipInPath = new System.Windows.Forms.ToolTip(this.components);
             this.ttipOutPath = new System.Windows.Forms.ToolTip(this.components);
             this.ttipGeneral = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.grpImportExport.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.MainLayout.SuspendLayout();
@@ -159,7 +159,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.90749F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.09251F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel3.Controls.Add(this.btnBrowseExData, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtGamePath, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtExtData, 1, 1);
@@ -177,7 +177,7 @@
             // 
             // btnBrowseExData
             // 
-            this.btnBrowseExData.Location = new System.Drawing.Point(352, 33);
+            this.btnBrowseExData.Location = new System.Drawing.Point(351, 33);
             this.btnBrowseExData.Name = "btnBrowseExData";
             this.btnBrowseExData.Size = new System.Drawing.Size(75, 23);
             this.btnBrowseExData.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.txtGamePath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGamePath.Location = new System.Drawing.Point(153, 3);
             this.txtGamePath.Name = "txtGamePath";
-            this.txtGamePath.Size = new System.Drawing.Size(193, 20);
+            this.txtGamePath.Size = new System.Drawing.Size(192, 20);
             this.txtGamePath.TabIndex = 0;
             this.txtGamePath.Text = "./rom_data/data";
             this.ttipInPath.SetToolTip(this.txtGamePath, "This is the path to the extracted ROM\'s data. \r\nThose get modified only when impo" +
@@ -205,7 +205,7 @@
             this.txtExtData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtExtData.Location = new System.Drawing.Point(153, 33);
             this.txtExtData.Name = "txtExtData";
-            this.txtExtData.Size = new System.Drawing.Size(193, 20);
+            this.txtExtData.Size = new System.Drawing.Size(192, 20);
             this.txtExtData.TabIndex = 1;
             this.txtExtData.Text = "./exported_data";
             this.ttipOutPath.SetToolTip(this.txtExtData, "This is the path where the editable files will be exported to\r\nby the application" +
@@ -234,7 +234,7 @@
             // 
             // btnBrowseInput
             // 
-            this.btnBrowseInput.Location = new System.Drawing.Point(352, 3);
+            this.btnBrowseInput.Location = new System.Drawing.Point(351, 3);
             this.btnBrowseInput.Name = "btnBrowseInput";
             this.btnBrowseInput.Size = new System.Drawing.Size(75, 23);
             this.btnBrowseInput.TabIndex = 4;
@@ -299,6 +299,17 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(291, 55);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 13);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Visit project\'s github";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -343,17 +354,6 @@
             this.ttipGeneral.AutoPopDelay = 10000;
             this.ttipGeneral.InitialDelay = 500;
             this.ttipGeneral.ReshowDelay = 100;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(291, 55);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(100, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Visit project\'s github";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // NewMainWindow
             // 

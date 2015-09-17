@@ -1,0 +1,147 @@
+﻿=======================================================
+==  Baz the Poochyena's PMD:EoS/T/D - StatsUtil GUI  ==
+=======================================================
+Version	   : 0.20
+Released   : 2015/09/17
+Written by : psy_commando (psycommando@gmail.com)
+
+The entire sourcecode for all my tools that are part of this suite is available here:
+https://github.com/PsyCommando/ppmdu/
+
+----------------------------------------------------------------------------------------------------
+Changelog:
+----------------------------------------------------------------------------------------------------
+- 0.20 : Initial release!
+
+----------------------------------------------------------------------------------------------------
+License info:
+----------------------------------------------------------------------------------------------------
+My code and tools are CC0. 
+Free to re-use in any ways you may want to!
+No crappyrights, all wrongs reversed! :3
+
+This is not including any libraries I'm using that have their own licenses of course!!
+The license for each of these libraries is indicated in their respective header files,
+and they're all isolated in the "libraries" subfolder !
+
+----------------------------------------------------------------------------------------------------
+Special Thanks:
+----------------------------------------------------------------------------------------------------
+-> Many, many thanks to Zhorken for reversing most of the "PX" compression format! - https://github.com/Zhorken
+-> A big thanks to Nerketur for his help !
+-> A big thanks to TruePikachu for his help !
+-> A big thanks to Evandixon for his help !
+-> Thanks to the people from GBATemp and Project Pokemon Forums !
+-> Thanks to MNChino for helping with some of my tools !
+-> ..and anyone else I may have forgotten about ! ^^;
+
+----------------------------------------------------------------------------------------------------
+About:
+----------------------------------------------------------------------------------------------------
+
+This tool can export various data from the Pokemon Mystery Dungeon : Explorers of Sky (Only Sky is supported for now).
+What the tools does pretty much is simply converting and formating the data in a way a human can work with.
+XML files, and standard text files, all neatly organized under folders and properly named files.
+
+Right now it supports:
+- Game text (Some dialog, menus, item names, move names, pokemon names, etc..)
+- Move data (Base power, type, name, descritpion, etc.. )
+- Pokemon data (Name, category, type, stats growth, level-up moves, hm/tm moves, egg moves, etc..)
+
+------------------------------
+--Random Uninteresting Fact--:
+------------------------------
+The weird name is inspired from my EoS playthrough, where I cheated to get a Poochyena as starter. 
+He turned out really good after ingesting so many gummies and pretty much carried the team 
+most of the game! XD
+And, I just love that pokemon, so yeah, that's pretty much it..
+
+----------------------------------------------------------------------------------------------------
+How to use:
+----------------------------------------------------------------------------------------------------
+Here's the idea behind the tool:
+    You extract the ROM's files.
+    You export the data into a human editable format. 
+    You make your changes.
+    You import the human editable files back into a format the game understands using the tool, overwriting the exported ROM files.
+    You rebuild a new ROM from the modified ROM files.
+    And you're done!
+
+
+Exporting the Data:
+-------------------
+    1. First, extract the Explorers of Sky ROM to a folder, using your favorite tool.
+    2. Start statsutil_gui
+    3. Enter in the "Game data directory" textbox the path to the "data" directory of the ROM you just extracted.(That's basically the directory that contains the BACK, MESSAGE, SCRIPT, SOUND, and etc, directories. )
+    4. Enter in the "Export target/Import source directory" the location where you want the editable data files to be placed. (You can leave it at the default value if you want, it'll export the data to a sub-directory in the program's directory.)
+    5. Press the "Export" button, and let the application do its thing.
+    6. Edit the files.
+
+Importing the Data:
+-------------------
+    1. Start statsutil_gui
+    2. Enter in the "Game data directory" textbox the path to the "data" directory of the ROM you just extracted.(That's basically the directory that contains the BACK, MESSAGE, SCRIPT, SOUND, and etc, directories. )
+    3. Enter in the "Export target/Import source directory" the location where the edited data files are placed.(What you exported in the "Exporting the Data" section above )
+    4. Press the "Import" button, and let the application do its thing.
+    5. Rebuild the ROM from the extracted ROM files. And you're good to go.
+
+
+If there is an error:
+---------------------
+Its possible you didn't provide the correct paths. The user interface can't possibly validate all cases currently, as its just a frontend.
+So if you pass a valid directory that doesn't contains the appropriate files, the GUI won't notice any problems, but the actual utility
+will crash, and return a generic error message.
+
+So, make sure the folders you specified contains what they should first. 
+
+This will eventually be handled automatically, once the API is ready.
+
+More Details:
+-------------
+
+* Pokemon Data:
+    The Pokemon data is outputed to several xml files. One for every Pokemon. Its name contains the
+    index of its primary gender in the game data, followed by the Pokemon's name in the game strings
+    at the moment of export.
+    Most Pokemon files contains 2 "gender entities" those are basically how the game deals with
+    pokemon having more than one gender. Even mono-gendered species, or genderless ones have a 
+    "secondary gender entity". 
+    Only special Pokemon don't have 2, and those appears to be mainly dummies used during cutscenes.
+
+    If the data was exported from Explorers of Sky, the Pokemon will also have 2 moveset tags,
+    one for each of its entries in the game files. For some reasons EoS has duplicate entries
+    for all Pokemon movesets, some are slightly different.
+
+* Move Data:
+    The move data is exported in a similar way to Pokemon data. If the game it was exported from
+    is Explorers of Sky, a duplicate entry of the move's data will be present. That's because the
+    EoS game has a copy of all move data, and its unclear if its even used, but better 
+    output it with the rest I guess.
+
+* Item Data:
+    The item data is exported just like the last two types of data. Some items may have exlusive data.
+    But only past a certain item index are items considered exclusive items.
+
+* Text Data:
+    The text data is exported in the simplest method possible, as a raw text file!
+    Each line is a single string in the game. All special characters are escaped with a backslash!
+    So, end of lines are "\n", end of string are "\0" and other unprintable characters are "\ddd" where
+    'd' is a decimal digit.
+
+    Be sure not to use your enter key ever in that text file, or you'll create new text 
+    entries for each new lines you make! And since the game looks for those entries by 
+    the order they appear in, you'd screw up all the text for the entire game!
+
+
+To edit those, a reference sheet might come in handy, and you can pick one over there: 
+http://apointlessplace.net/wms (look for a item_p.xlsx excel sheet, and go to the keyvalue tab)
+Those numbers next to all those things are the same values that end up in the XML data!
+You can also go on the Project Pokemon Wiki and look at the monster.md and the waza_p.bin page!.
+http://projectpokemon.org/wiki/Pokemon_Mystery_Dungeon_Explorers_of_Sky
+
+
+----------------------------------------------------------------------------------------------------
+Documentation :
+----------------------------------------------------------------------------------------------------
+See my thread here for links to my notes and etc: 
+http://projectpokemon.org/forums/showthread.php?40199-Pokemon-Mystery-Dungeon-2-Psy_commando-s-Tools-and-research-notes
