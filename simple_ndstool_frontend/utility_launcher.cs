@@ -30,7 +30,8 @@ namespace FrontendCommon
 
             //Check if utility is here
             System.IO.FileInfo myfile = new System.IO.FileInfo(AppPath);
-
+            //if (myfile.Exists)
+            //{
             //Launch utility
             ProcessStartInfo startInfo = new ProcessStartInfo();
             //startInfo.CreateNoWindow = false;
@@ -49,6 +50,13 @@ namespace FrontendCommon
             m_process = Process.Start(startInfo);
 
             return m_process != null;
+            //}
+            //else
+            //{
+            //    //Show message about missing application.
+            //    MessageBox.Show(m_parentwin, m_utilname + " is missing from the application's folder !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
         }
 
         public void KillUtil()
